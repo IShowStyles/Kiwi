@@ -1,4 +1,4 @@
-const menuElementList = document.querySelectorAll('.header-top__menu-left > ul > li');
+const menuElementList = document.querySelectorAll('.header-top__menu_left > ul > li');
 const toggleMenuElementList = menuElementList[1];
 let dropdown = document.querySelector('.header__dropdown');
 const textToggleMenuElementList = toggleMenuElementList.querySelector('span');
@@ -7,10 +7,10 @@ const toggleMenu = () => {
 	state = !state;
 	if (state) {
 		textToggleMenuElementList.style.color = '#01A3A4';
-		dropdown.classList.add('header__dropdown--active');
+		dropdown.classList.add('header__dropdown_active');
 	} else {
 		textToggleMenuElementList.style.color = '#212121';
-		dropdown.classList.remove('header__dropdown--active');
+		dropdown.classList.remove('header__dropdown_active');
 	}
 }
 
@@ -23,13 +23,13 @@ const bodyLock = document.querySelector('body');
 const buttonHandler = () => {
 	burger.addEventListener('click', async () => {
 		document.querySelector("body").style.paddingTop = 0;
-		mobileMenu.classList.toggle('menu--active');
+		mobileMenu.classList.toggle('menu_active');
 		await document.querySelector(".header").scrollIntoView({block: "center", behavior: "smooth"});
-		if (mobileMenu.classList.contains('menu--active')) {
-			burger.classList.add('header-menu--active');
+		if (mobileMenu.classList.contains('menu_active')) {
+			burger.classList.add('header-menu_active');
 			bodyLock.classList.add('lock');
 		} else {
-			burger.classList.remove('header-menu--active');
+			burger.classList.remove('header-menu_active');
 			bodyLock.classList.remove('lock');
 		}
 	});
@@ -98,7 +98,6 @@ window.addEventListener('resize', () => {
 });
 
 $(document).ready(function () {
-
 	$("#Email-form").validate({
 
 		rules: {
@@ -118,9 +117,9 @@ $(document).ready(function () {
 		submitHandler: function (form,event) {
 
 			$('#Email-form input').val('');
-			// setTimeout(function() {
-			// 	$.fancybox.close();
-			// }, 6750);
+			setTimeout(function() {
+				$.fancybox.close();
+			}, 6750);
 			$.fancybox.open({
 
 				src: '#subscription-modal',
@@ -135,18 +134,22 @@ $(document).ready(function () {
 	});
 });
 
-const swiperReview = new Swiper('.reviews-content__bottom-con', {
+$(function () {
+
+});
+
+const swiperReview = new Swiper('.reviews-content__bottom_con', {
 	speed: 400,
 	slidesPerView: 1,
 	slidesPerGroup: 1,
 	// spaceBetween: 120,
 	navigation: {
-		nextEl: '.reviews-slider__btn-right',
-		prevEl: '.reviews-slider__btn-left',
+		nextEl: '.reviews-slider__btn_right',
+		prevEl: '.reviews-slider__btn_left',
 	},
 	breakpoints:{
 		320:{
-			spaceBetween: 100,
+			spaceBetween: 10,
 		},
 		480:{
 			spaceBetween: 70,
@@ -157,4 +160,3 @@ const swiperReview = new Swiper('.reviews-content__bottom-con', {
 
 
 
-//# sourceMappingURL=app.js.map
